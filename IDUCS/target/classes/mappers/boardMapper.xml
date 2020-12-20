@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cafe24.iducs.mappers.boardMapper">
+	<select id="selectBoardList" parameterType="BoardDTO" resultType="BoardDTO">
+		SELECT board.*, member.name AS name FROM board 
+		LEFT JOIN member ON board.member_no = member.no WHERE board.lang='${lang}' AND board.devide='${devide}'
+	</select>
+	
+	<select id="selectBoard" parameterType="BoardDTO" resultType="BoardDTO">
+		SELECT board.*, member.name AS name FROM board 
+		LEFT JOIN member ON board.member_no = member.no WHERE board.no=${no}
+	</select>
+	
+	<insert id="insertBoard" parameterType="BoardDTO">
+		INSERT INTO board(member_no, lang, devide, title, content, date) VALUES(0, '${lang}', '${devide}', '${title}', '${content}', now())
+	</insert>
+</mapper>
