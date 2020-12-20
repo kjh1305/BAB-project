@@ -11,8 +11,6 @@
 
 ![images](/images/게시판.png)
 
-![images](/images/게시물 작성.png)
-
 ![images](/images/글수정.JPG)
 
 ![images](/images/댓글수정.JPG)
